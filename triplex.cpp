@@ -9,16 +9,35 @@ int main()
     std::cout << std::endl;
 
     // Declare 3 number code
-    int a = 8;
-    int b = 8;
-    int c = 8;
+    int FirstNumber = 8;
+    int SecondNumber = 8;
+    int ThirdNumber = 8;
 
-    int sum = a + b + c;
-    int product = a * b * c;
+    int CodeSum = FirstNumber + SecondNumber + ThirdNumber;
+    int CodeProduct = FirstNumber * SecondNumber * ThirdNumber;
 
     // Print sum and product to the terminal
-    std::cout << sum << std::endl;
-    std::cout << product << std::endl;
+    std::cout << std::endl;
+    std::cout << "There are 3 numbers in the code" << std::endl;
+    std::cout << "The code adds up to: " << CodeSum << std::endl;
+    std::cout << "The product of the code is: " << CodeProduct << std::endl;
+
+    int GuessA, GuessB, GuessC;
+    std::cin >> GuessA;
+    std::cin >> GuessB;
+    std::cin >> GuessC;
+
+    int GuessSum = GuessA + GuessB + GuessC;
+    int GuessProduct = GuessA + GuessB + GuessC;
+
+    if (GuessSum == CodeSum && GuessProduct == CodeProduct)
+    {
+        std::cout << "You win!!" << std::endl;
+    }
+    else
+    {
+        std::cout << "BOOM! Roasted!" << std::endl;
+    }
 
     return 0;
 }
