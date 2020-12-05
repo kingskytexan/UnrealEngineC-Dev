@@ -3,11 +3,11 @@
 void PrintIntroduction()
 {
      // Shows welcome messages to terminal
-    std::cout << "You are a secret agent breaking into a secure server room...\n";
+    std::cout << "\n\nYou are a secret agent breaking into a secure server room...\n";
     std::cout << "Enter the correct code to continue...\n\n";
 }
 
-void PlayGame()
+bool PlayGame()
 {
     PrintIntroduction();
 
@@ -30,21 +30,31 @@ void PlayGame()
     std::cin >> GuessA >> GuessB >> GuessC;
     
     int GuessSum = GuessA + GuessB + GuessC;
-    int GuessProduct = GuessA + GuessB + GuessC;
+    int GuessProduct = GuessA * GuessB * GuessC;
 
     // Check if the player's guess is correct or not
     if (GuessSum == CodeSum && GuessProduct == CodeProduct)
     {
         std::cout << "You win!!\n";
+        return true;
     }
     else
     {
         std::cout << "BOOM! Roasted!\n";
+        return false;
     }
 }
 
 int main()
 {
-   PlayGame();
+    // Loop runs through the game and when you get the answer right you move on the next level
+    // if not the game ends
+    while(true)
+    {
+        bool bLevelComplete = PlayGame();
+        std::cin.clear(); // Clears any errors
+        std::cin.ignore(); // Discards the buffer
+    }
+   
     return 0;
 }
